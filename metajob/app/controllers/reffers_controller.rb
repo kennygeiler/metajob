@@ -62,13 +62,13 @@ class ReffersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reffer
-      @reffer = Reffer.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reffer
+    @reffer = Reffer.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def reffer_params
-      params[:reffer]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def reffer_params
+    params.require(:reffer).permit(:ref_code, :invite_code, user_attributes: [ :id, :email, :password ])
+  end
 end
