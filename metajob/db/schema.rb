@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(version: 20151013172211) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "city"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -40,8 +43,10 @@ ActiveRecord::Schema.define(version: 20151013172211) do
   end
 
   create_table "reffers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "invite_code"
+    t.string   "ref_code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

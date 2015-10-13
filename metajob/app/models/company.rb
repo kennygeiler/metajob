@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
-  has_one :user, as: :meta, dependent: :destroy
-  accepts_nested_attributes_for :user
-  has_many :jobs
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end
