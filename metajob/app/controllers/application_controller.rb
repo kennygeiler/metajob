@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :update_sanitized_params, if: :devise_controller?
 
 def update_sanitized_params
-  devise_parameter_sanitizer.for(:company_sign_up) {|u| u.permit(:city, :name, :description)}
+  devise_parameter_sanitizer.for(:companies_sign_up) {|u| u.permit(:city, :name, :description)}
 end
 
 
