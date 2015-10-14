@@ -8,6 +8,3 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up).push(:ref_code, :invite_code)
   end
 end
-
-# config/routes.rb
-devise_for :users, :controllers => { :registrations => "user/registrations" }

@@ -9,5 +9,3 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   end
 end
 
-# config/routes.rb
-devise_for :companies, :controllers => { :registrations => "companies/registrations" }
