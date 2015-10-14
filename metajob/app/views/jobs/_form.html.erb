@@ -1,3 +1,4 @@
+<% if current_company != nil %>
 <%= form_for(@job) do |f| %>
 
    <div class="field">
@@ -18,4 +19,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
 <% end %>
