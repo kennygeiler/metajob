@@ -1,15 +1,19 @@
 <%= form_for(@job) do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
 
-      <ul>
-      <% @job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+   <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+   <div class="field">
+    <%= f.label :ref_fee %><br />
+    <%= f.text_field :ref_fee %>
+  </div>
+   <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+    <%= f.hidden_field :company_id, :value => current_company.id %>
 
   <div class="actions">
     <%= f.submit %>
