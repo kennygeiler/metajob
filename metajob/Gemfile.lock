@@ -93,6 +93,8 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     rack (1.6.4)
+    rack-affiliates (0.4.0)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -169,6 +171,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.3)
+  rack-affiliates
   rails (= 4.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
