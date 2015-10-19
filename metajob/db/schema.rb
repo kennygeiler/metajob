@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(version: 20151013234944) do
     t.string   "position"
     t.string   "ref_fee"
     t.text     "description"
+    t.boolean  "position_filled", default: false
     t.integer  "company_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|
