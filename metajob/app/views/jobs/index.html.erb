@@ -14,6 +14,8 @@
       <tr>
         <td><%= job.position %></td>
         <td><%= job.company.name %></td>
+        <td>application link: <a href="applications/new?application[job_id]=#{<%=job.id%>}">hi</a>
+
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
