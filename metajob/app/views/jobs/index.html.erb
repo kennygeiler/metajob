@@ -14,7 +14,7 @@
       <tr>
         <td><%= job.position %></td>
         <td><%= job.company.name %></td>
-        <td>application link: <a href="applications/new?job_id<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
+        <td>application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
 
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
