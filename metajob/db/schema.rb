@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013234944) do
+ActiveRecord::Schema.define(version: 20151018205633) do
 
   create_table "applications", force: :cascade do |t|
     t.string   "full_name"
@@ -21,8 +21,16 @@ ActiveRecord::Schema.define(version: 20151013234944) do
     t.string   "resume"
     t.string   "ref_code"
     t.integer  "job_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   create_table "companies", force: :cascade do |t|
