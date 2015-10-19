@@ -72,5 +72,3 @@ class ApplicationsController < ApplicationController
        params.require(:application).permit(:full_name, :email, :github_link, :linkedin_link, :resume, :ref_code, :job_id)
     end
 end
-
-# attach means resume
