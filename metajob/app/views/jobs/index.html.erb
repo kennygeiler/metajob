@@ -24,13 +24,14 @@
   </tbody>
 </table>
 
-_______________________________
+<br>
 
 my jobs
-
+<br>
 ________________________________
+<br>
 
-<% if @my_jobs != nil %>
+<% if @my_jobs != nil && (params[:my_job] = true)%>
   <% @my_jobs.each do |job| %>
     job.position <br>
     job.company.name
