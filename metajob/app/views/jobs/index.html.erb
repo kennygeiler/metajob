@@ -24,6 +24,18 @@
   </tbody>
 </table>
 
+_______________________________
+
+my jobs
+
+________________________________
+
+<% @my_jobs.each do |job| %>
+  job.position <br>
+  job.company.name
+
+<% end %>
+
 <br>
 
 <%= link_to 'New Job', new_job_path %>
