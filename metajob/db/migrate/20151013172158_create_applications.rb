@@ -1,11 +1,11 @@
 class CreateApplications < ActiveRecord::Migration
   def change
     create_table :applications do |t|
-      t.string :full_name
-      t.string :email
+      t.string :full_name, null: false
+      t.string :email, null: false
       t.string :github_link
       t.string :linkedin_link
-      t.string :resume
+      t.string :resume. null: false
       t.string :ref_code
       t.integer :job_id
       t.timestamps null: false
