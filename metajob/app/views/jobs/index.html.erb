@@ -2,6 +2,19 @@
 
 <h1>Listing Jobs</h1>
 
+<% form_tag jobs_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :city, params[:city] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<% if @filtered_jobs != nil %>
+  <% @filtered_jobs.each do |job| %>
+    <%= job.city %>
+  <% end %>
+<% end %>
+
 <table>
   <thead>
     <tr>
