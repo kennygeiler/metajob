@@ -3,11 +3,11 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @filtered_jobs = Job.where(location: params[:location])
     if current_company
       @my_jobs = Job.where(current_company.id)
     end
   end
-
 
 
   def show
