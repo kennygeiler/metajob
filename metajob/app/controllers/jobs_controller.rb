@@ -3,7 +3,9 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
-    @my_jobs = Job.find_by(current_company.id)
+    if current_company
+      @my_jobs = Job.find_by(current_company.id)
+    end
   end
 
 

@@ -30,10 +30,11 @@ my jobs
 
 ________________________________
 
-<% @my_jobs.each do |job| %>
-  job.position <br>
-  job.company.name
-
+<% if @my_jobs != nil %>
+  <% @my_jobs.each do |job| %>
+    job.position <br>
+    job.company.name
+  <% end %>
 <% end %>
 
 <br>
