@@ -14,6 +14,7 @@
       <tr>
         <td><%= job.position %></td>
         <td><%= job.company.name %></td>
+        <td><%= job.position_filled %></td>
         <td>application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
 
         <td><%= link_to 'Show', job %></td>
@@ -33,8 +34,8 @@ ________________________________
 
 <% if @my_jobs != nil && (params[:my_job] = true)%>
   <% @my_jobs.each do |job| %>
-    job.position <br>
-    job.company.name
+    <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
+    <%= job.position %><br>
   <% end %>
 <% end %>
 
