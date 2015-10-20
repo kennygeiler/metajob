@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20151013234944) do
   create_table "jobs", force: :cascade do |t|
     t.string   "position"
     t.string   "ref_fee"
+    t.string   "city"
     t.text     "description"
     t.boolean  "position_filled", default: false
     t.integer  "company_id"

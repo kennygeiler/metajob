@@ -3,6 +3,7 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
       t.string :position
       t.string :ref_fee
+      t.string :city
       t.text :description
       t.boolean :position_filled, default: false
       t.integer :company_id
