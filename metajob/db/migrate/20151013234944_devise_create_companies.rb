@@ -2,7 +2,7 @@ class DeviseCreateCompanies < ActiveRecord::Migration
   def change
     create_table(:companies) do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "", unqiue: true
       t.string :encrypted_password, null: false, default: ""
       t.string :name
       t.string :city
