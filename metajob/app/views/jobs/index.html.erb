@@ -44,18 +44,20 @@
 
 <br>
 
-my jobs
-<br>
-________________________________
-<br>
+
 
 <% if @my_jobs != nil && (params[:my_job] = true)%>
+  my jobs <br>
   <% @my_jobs.each do |job| %>
     <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
     <%= job.position %><br>
+  --------------
+
   <% end %>
 <% end %>
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>
+<% if current_company != nil %>
+  <%= link_to 'New Job', new_job_path %>
+<% end %>
