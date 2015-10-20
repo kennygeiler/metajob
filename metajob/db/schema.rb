@@ -14,15 +14,16 @@
 ActiveRecord::Schema.define(version: 20151013234944) do
 
   create_table "applications", force: :cascade do |t|
-    t.string   "full_name"
-    t.string   "email"
+    t.string   "full_name",      null: false
+    t.string   "email",          null: false
     t.string   "github_link"
     t.string   "linkedin_link"
-    t.string   "resume"
+    t.string   "resume",         null: false
     t.string   "ref_code"
     t.integer  "job_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "reffering_user", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -47,10 +48,10 @@ ActiveRecord::Schema.define(version: 20151013234944) do
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
 
   create_table "jobs", force: :cascade do |t|
-    t.string   "position"
-    t.string   "ref_fee"
-    t.string   "city"
-    t.text     "description"
+    t.string   "position",                        null: false
+    t.string   "ref_fee",                         null: false
+    t.string   "city",                            null: false
+    t.text     "description",                     null: false
     t.boolean  "position_filled", default: false
     t.integer  "company_id"
     t.datetime "created_at",                      null: false

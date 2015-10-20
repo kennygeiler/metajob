@@ -6,10 +6,15 @@ class ApplicationsController < ApplicationController
 
   def create
     @application = Application.new(application_params)
-
+    @users = User.all
+    @users.each do |user|
+      if @application.ref_code == user.ref_code
+        @application.reffering_user = user.id
+      end
+    end
     respond_to do |format|
       if @application.save
-        format.html { redirect_to @application, notice: 'Application was successfully created.' }
+        format.html { redirect_to jobs_path, notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else
         format.html { render :new }
@@ -26,6 +31,6 @@ class ApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
-       params.require(:application).permit(:full_name, :email, :github_link, :linkedin_link, :resume, :ref_code, :job_id)
+       params.require(:application).permit(:full_name, :email, :github_link, :linkedin_link, :resume, :ref_code, :job_id, :reffering_user)
     end
 end
