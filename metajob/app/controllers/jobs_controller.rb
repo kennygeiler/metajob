@@ -3,6 +3,9 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    if current_company
+      @my_jobs = Job.where(current_company.id)
+    end
   end
 
 
@@ -61,7 +64,7 @@ class JobsController < ApplicationController
 
 
   def job_params
-    params.require(:job).permit(:position, :ref_fee, :description, :company_id)
+    params.require(:job).permit(:position, :ref_fee, :description, :company_id, :position_filled)
   end
 
 end

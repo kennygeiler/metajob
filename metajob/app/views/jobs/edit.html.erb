@@ -1,6 +1,22 @@
 <h1>Editing Job</h1>
+/// edit this form so that a company can mark its job filled
+<% if current_company != nil %>
+<%= form_for(@job) do |f| %>
 
-<%= render 'form' %>
+   <div class="field">
+    <%= f.label :position_filled %><br />
+    <%= f.check_box :position_filled, {}, true, false %>
+  </div>
+
+
+    <%= f.hidden_field :company_id, :value => current_company.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% end %>
 
 <%= link_to 'Show', @job %> |
 <%= link_to 'Back', jobs_path %>
