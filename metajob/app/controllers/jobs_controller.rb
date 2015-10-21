@@ -14,25 +14,36 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
+    if current_company
+      @job = Job.new
+    else
+      redirect_to jobs_path
+    end
   end
 
 
   def edit
+    if !current_company
+      redirect_to jobs_path
+    end
   end
 
 
   def create
-    @job = Job.new(job_params)
+    if current_company
+      @job = Job.new(job_params)
 
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
-      else
-        format.html { render :new }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @job.save
+          format.html { redirect_to @job, notice: 'Job was successfully created.' }
+          format.json { render :show, status: :created, location: @job }
+        else
+          format.html { render :new }
+          format.json { render json: @job.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to jobs_path
     end
   end
 
