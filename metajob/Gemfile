@@ -17,6 +17,8 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'therubyracer'
+gem 'less-rails'
 gem 'devise'
 gem 'rack-affiliates'
 # Use jquery as the JavaScript library
