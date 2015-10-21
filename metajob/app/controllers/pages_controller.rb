@@ -4,5 +4,6 @@ class PagesController < ApplicationController
       redirect_to jobs_path
     else
       render template: "pages/#{params[:page]}"
+    end
   end
 end
