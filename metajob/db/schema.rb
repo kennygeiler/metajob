@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151013234944) do
   create_table "companies", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "link"
     t.string   "name"
     t.string   "city"
     t.string   "description"
