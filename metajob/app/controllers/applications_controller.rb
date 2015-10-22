@@ -2,6 +2,7 @@ class ApplicationsController < ApplicationController
 
   def new
     @application = Application.new
+    @applied_job = Job.find(params[:job_id])
   end
 
   def create

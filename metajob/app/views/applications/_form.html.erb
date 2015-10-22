@@ -1,5 +1,10 @@
 <% if params[:job_id] %>
-  "hello"
+
+Company: <%= @applied_job.company.name %> <br>
+Company description: <%= @applied_job.company.description %> <br>
+Job description: <%= @applied_job.description %> <br>
+Qualifications: <%= @applied_job.qualifications %>
+
 <% end %>
 
 <%= form_for(@application) do |f| %>
