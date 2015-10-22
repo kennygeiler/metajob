@@ -8,17 +8,17 @@
 </head>
 <body>
 <% if current_user %>
-<!--   <%= link_to "Sign out User", destroy_user_session_path, :method => :delete %> -->
+  <%= link_to "Sign out User", destroy_user_session_path, :method => :delete %>
 <% else %>
-<!--   <%= link_to "Sign Up User", new_user_registration_path %>  -->
+<!--   <%= link_to "Sign Up User", new_user_registration_path %> -->
 <!--   <%= link_to "Sign In User", new_user_session_path %> -->
 <% end %>
 <% if current_company %>
-<!--   <%= link_to "My jobs", jobs_path(my_job: true) %>
-  <%= link_to "Sign out Company", destroy_company_session_path, :method => :delete %> -->
+  <%= link_to "My jobs", jobs_path(my_job: true) %>
+  <%= link_to "Sign out Company", destroy_company_session_path, :method => :delete %>
 <% else %>
-<!--   <%= link_to "Sign Up Company", new_company_registration_path %>
-  <%= link_to "Sign In Company", new_company_session_path %> -->
+ <!--  <%= link_to "Sign Up Company", new_company_registration_path %>  -->
+<!--   <%= link_to "Sign In Company", new_company_session_path %> -->
 <% end %>
 <%= yield %>
 
