@@ -30,6 +30,7 @@
         <td><%= job.position %></td>
         <td><%= job.company.name %></td>
         <td><%= job.position_filled %></td>
+        <td># of applications <%= job.applications.count %></td>
         <td>application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
 
         <td><%= link_to 'Show', job %></td>
