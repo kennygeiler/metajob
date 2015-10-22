@@ -2,7 +2,9 @@ class ApplicationsController < ApplicationController
 
   def new
     @application = Application.new
-    @applied_job = Job.find(params[:job_id])
+    if params[:job_id] <= Job.count
+      @applied_job = Job.find(params[:job_id])
+    end
   end
 
   def create
