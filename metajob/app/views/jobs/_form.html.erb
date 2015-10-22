@@ -7,11 +7,15 @@
   </div>
    <div class="field">
     <%= f.label :ref_fee %><br />
-    <%= f.text_field :ref_fee %>
+    $<%= f.text_field :ref_fee %>
   </div>
    <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :qualifications %><br />
+    <%= f.text_area :qualifications %>
   </div>
   <div class="field">
     <%= f.label :city %><br />

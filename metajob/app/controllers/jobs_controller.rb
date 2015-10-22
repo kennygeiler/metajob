@@ -3,6 +3,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @expensive_jobs = Job.order(:ref_fee)
     @filtered_jobs = Job.where(city: params[:city])
     if current_company
       @my_jobs = Job.where(current_company.id)
@@ -76,7 +77,7 @@ class JobsController < ApplicationController
 
 
   def job_params
-    params.require(:job).permit(:position, :ref_fee, :description, :company_id, :position_filled, :city)
+    params.require(:job).permit(:position, :ref_fee, :description, :company_id, :position_filled, :city, :filled_by_refferal, :qualifications)
   end
 
 end

@@ -4,6 +4,7 @@ class DeviseCreateCompanies < ActiveRecord::Migration
       ## Database authenticatable
       t.string :email,              null: false, default: "", unqiue: true
       t.string :encrypted_password, null: false, default: ""
+      t.string :link
       t.string :name
       t.string :city
       t.string :description

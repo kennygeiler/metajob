@@ -1,3 +1,14 @@
+<% if params[:job_id] %>
+
+Company: <%= @applied_job.company.name %> <br>
+Company Website: <%= @applied_job.company.link %>
+Location: <%= @applied_job.city %> <br>
+Company description: <%= @applied_job.company.description %> <br>
+Job description: <%= @applied_job.description %> <br>
+Qualifications: <%= @applied_job.qualifications %> <br>
+
+<% end %>
+
 <%= form_for(@application) do |f| %>
 
     <div class="field">

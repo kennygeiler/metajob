@@ -1,5 +1,5 @@
 <h1>Editing Job</h1>
-/// edit this form so that a company can mark its job filled
+/// if your hired employee was reffered by our site, select the box and we will email you with details on how to send the fee to the refferer.
 <% if current_company != nil %>
 <%= form_for(@job) do |f| %>
 
@@ -8,6 +8,11 @@
     <%= f.check_box :position_filled, {}, true, false %>
   </div>
 
+
+  <div class="field">
+    <%= f.label :filled_by_refferal %><br />
+    <%= f.check_box :filled_by_refferal, {}, true, false %>
+  </div>
 
     <%= f.hidden_field :company_id, :value => current_company.id %>
 
