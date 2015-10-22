@@ -48,14 +48,15 @@ ActiveRecord::Schema.define(version: 20151013234944) do
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
 
   create_table "jobs", force: :cascade do |t|
-    t.string   "position",                        null: false
-    t.string   "ref_fee",                         null: false
-    t.string   "city",                            null: false
-    t.text     "description",                     null: false
-    t.boolean  "position_filled", default: false
+    t.string   "position",                           null: false
+    t.integer  "ref_fee",                            null: false
+    t.string   "city",                               null: false
+    t.text     "description",                        null: false
+    t.boolean  "position_filled",    default: false
+    t.boolean  "filled_by_refferal", default: false
     t.integer  "company_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|
