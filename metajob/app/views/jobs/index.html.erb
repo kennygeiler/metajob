@@ -2,12 +2,14 @@
 
 <h1>Listing Jobs</h1>
 
+jobs by city
 <% if @filtered_jobs != nil %>
   <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
   <% end %>
 <% end %>
+
 
 <table>
   <thead>
@@ -23,6 +25,8 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+
+
 
   <tbody>
     <% @jobs.each do |job| %>
