@@ -2,7 +2,7 @@ class CreateJobs < ActiveRecord::Migration
   def change
     create_table :jobs do |t|
       t.string :position, null: false
-      t.string :ref_fee, null: false
+      t.integer :ref_fee, null: false
       t.string :city, null: false
       t.text :description, null: false
       t.boolean :position_filled, default: false

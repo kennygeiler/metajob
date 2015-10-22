@@ -3,6 +3,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @expensive_jobs = Job.order
     @filtered_jobs = Job.where(city: params[:city])
     if current_company
       @my_jobs = Job.where(current_company.id)
