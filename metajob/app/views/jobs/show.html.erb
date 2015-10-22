@@ -2,7 +2,9 @@
 
 <%= @job.ref_fee %> <br>
 <%= @job.position %> <br>
-<%= @job.company.name %>
+<%= @job.company.name %> <br>
+<%= @job.description %> <br>
+<%= @job.qualifications %>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
