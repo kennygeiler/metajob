@@ -6,6 +6,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :city, null: false
       t.text :description, null: false
       t.boolean :position_filled, default: false
+      t.boolean :filled_by_refferal, default: false
       t.integer :company_id
       t.timestamps null: false
     end
