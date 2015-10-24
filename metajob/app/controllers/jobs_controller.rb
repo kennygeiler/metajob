@@ -2,6 +2,9 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
+    if error
+      redirect_to
+    end
     @jobs = Job.all
     @expensive_jobs = Job.order(:ref_fee)
     @filtered_jobs = Job.where(city: params[:city])
