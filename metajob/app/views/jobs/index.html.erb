@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<% if current_user%>
+ My Ref Code: <%= current_user.ref_code %>
+<% end %>
 
 <h1>Listing Jobs</h1>
 
