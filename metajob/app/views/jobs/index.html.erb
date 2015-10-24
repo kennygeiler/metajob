@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<% if current_user%>
+ My Ref Code: <%= current_user.ref_code %>
+<% end %>
 
 <h1>Listing Jobs</h1>
 
@@ -54,8 +57,11 @@ jobs by city
 <% if @my_jobs != nil && (params[:my_job] = true)%>
   my jobs <br>
   <% @my_jobs.each do |job| %>
+    <% if job.position_filled == false %>
+    <%= job.position %>
     <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
-    <%= job.position %><br>
+    <% end %>
+    <br>
   --------------
 
   <% end %>
