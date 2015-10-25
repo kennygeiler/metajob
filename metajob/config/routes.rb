@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   devise_for :companies, controllers: {registrations: "companies/registrations"}
   get "/pages/:page" => "pages#show"
   root "pages#show", page: "home"
-
-
+  get "*path", to: redirect('/')
 end
