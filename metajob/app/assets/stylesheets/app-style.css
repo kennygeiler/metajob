@@ -1,7 +1,7 @@
 #new-application {
-  font-size: 13px;
+  font-size: 12px;
   color: black;
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 .app-head {
@@ -10,10 +10,11 @@
 
 #app-form {
   background-color: #E1E1E1;
-  width: 400px;
-  padding: 20px;
+  width: 450px;
+  padding: 25px;
+  margin-bottom: 25px;
 }
 
 #test {
-  background-color: white;
+  background-color: rgba(192, 192, 192, 0.01);
 }
