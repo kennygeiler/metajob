@@ -12,6 +12,7 @@
         <ul class="nav navbar-nav">
               <% if current_company %>
               <li><%= link_to "My jobs", jobs_path(my_job: true) %> </li>
+              <li><%= link_to 'New Job', new_job_path %></li>
               <li><%= link_to "Sign out", destroy_company_session_path, :method => :delete %> </li>
               <% end %>
               <% if current_user %>
