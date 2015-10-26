@@ -20,14 +20,6 @@
               <% end %>
         </ul>
         <div class="col-sm-3 col-md-3 pull-right">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </nav>
@@ -35,28 +27,21 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Jobs</h1>
 
+             Search Jobs By City: <%= form_tag jobs_path, :method => 'get', class: "navbar-form" do %>
+                <div class="input-group">
+                    <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "New York" %>
+                    <div class="input-group-btn">
+                        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+                    </div>
+                </div>
+            <% end %>
+
 jobs by city
 <% if @filtered_jobs != nil %>
   <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
   <% end %>
-<% end %>
-
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <%= form_tag jobs_path, :method => 'get' do %>
-  <p>
-    Search by city
-    <%= text_field_tag :city, params[:city] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
 <% end %>
 
 
@@ -99,6 +84,3 @@ jobs by city
 
 <br>
 
-<% if current_company != nil %>
-  <%= link_to 'New Job', new_job_path %>
-<% end %>
