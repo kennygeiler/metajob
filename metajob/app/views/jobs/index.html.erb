@@ -49,19 +49,17 @@
   <% end %>
 <% else %>
      <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.position %></td>
-        <td><%= job.company.name %></td>
-        <td><%= job.position_filled %></td>
-        <td># of applications <%= job.applications.count %></td>
-        <td>application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
+        <%= job.position %>
+        <%= job.company.name %>
+        <%= job.position_filled %>
+        # of applications <%= job.applications.count %>
+        application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
 
-        <td><%= link_to 'Show', job %></td>
+        <%= link_to 'Show', job %>
         <% if current_company != nil && current_company.id == job.company.id %>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Edit', edit_job_path(job) %>
+        <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
     <% end %>
 <% end %>
 
