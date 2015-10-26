@@ -34,21 +34,21 @@
 </p>
 <% end %>
 <% if @filtered_jobs != nil %>
-
-
   <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
   <% end %>
-
-
-
-<% end %>
-
-
-
-  <tbody>
-    <% @jobs.each do |job| %>
+<% elsif @my_jobs != nil && (params[:my_job] = true) %>
+  my jobs <br>
+  <% @my_jobs.each do |job| %>
+    <% if job.position_filled == false %>
+    <%= job.position %>
+    <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
+    <% end %>
+    <br>
+  <% end %>
+<% else %>
+     <% @jobs.each do |job| %>
       <tr>
         <td><%= job.position %></td>
         <td><%= job.company.name %></td>
@@ -63,25 +63,5 @@
         <% end %>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
-<% if @my_jobs != nil && (params[:my_job] = true)%>
-  my jobs <br>
-  <% @my_jobs.each do |job| %>
-    <% if job.position_filled == false %>
-    <%= job.position %>
-    <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
-    <% end %>
-    <br>
-  --------------
-
-  <% end %>
 <% end %>
-
-<br>
 
