@@ -1,21 +1,21 @@
 <div id="new-application">
 <% if params[:job_id] %>
-  <h2><%= @applied_job.company.name %></h2>
-  <h4><%= @applied_job.company.link %></h4>
+  <h3 class="app-head"><%= @applied_job.company.name %></h2>
+  <%= link_to @applied_job.company.link, @applied_job.company.link %> <br>
   <i>Located in: <%= @applied_job.city %> </i>
 
-<h3>About <%= @applied_job.company.name %> </h3>
+<h4 class="app-head">About <%= @applied_job.company.name %> </h3>
 <p><%= @applied_job.company.description %></p>
 
-<h3>Position: <%= @applied_job.position %></h3>
-<h4>What you'll do</h4>
+<h4 class="app-head">Position: <%= @applied_job.position %></h3>
+<h5 class="app-head">What you'll do</h4>
 <p><%= @applied_job.description %></p>
 
-<h3>Qualifications</h3>
+<h4 class="app-head">Qualifications</h3>
 <p><%= @applied_job.qualifications %></p>
 
 
-
+<div id="app-form">
 <%= form_for(@application) do |f| %>
 
     <div class="field">
@@ -52,5 +52,5 @@
 <% end %>
 
 <% end %>
-
+</div>
 </div>
