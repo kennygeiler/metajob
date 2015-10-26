@@ -1,7 +1,5 @@
-<%= render "companies/shared/links" %>
-
-<!--login modal-->
-<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="signup-background">
+<div id="loginModal" class="show" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
   <div class="modal-content">
       <div class="modal-header">
@@ -12,7 +10,7 @@
         <%= devise_error_messages! %>
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control input-lg" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control input-md" %>
   </div>
 
   <div class="form-group">
@@ -20,33 +18,36 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control input-md" %>
   </div>
 
     <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-md" %>
   </div>
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, class: "form-control input-lg" %>
+    <%= f.text_field :name, class: "form-control input-md" %>
   </div>
 
   <div class="field">
     Website<br />
-    <%= f.text_field :link, class: "form-control input-lg" %>
+    <%= f.text_field :link, class: "form-control input-md" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class: "form-control input-md" %>
   </div>
 
     <div class="field">
     <%= f.label :city %><br />
-    <%= f.text_field :city, class: "form-control input-lg" %>
+    <%= f.text_field :city, class: "form-control input-md" %>
   </div>
 
-      <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, class: "form-control input-lg" %>
-  </div>
+  <br>
+
 
   <div class="form-group">
     <%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block"  %>
@@ -55,4 +56,6 @@
       </div>
         </div>
   </div>
+</div>
+
 </div>

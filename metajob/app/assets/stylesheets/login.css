@@ -9,3 +9,11 @@
 .login-title {
   color: #6D5D5D;
 }
+
+textarea {
+  resize:none;
+}
+
+body {
+  background-color: aliceblue;
+}
