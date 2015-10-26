@@ -33,7 +33,7 @@
   </div>
 </p>
 <% end %>
-<% if @filtered_jobs != nil %>
+<% if (params[:my_job] != true) && @filtered_jobs != nil %>
   <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
@@ -63,3 +63,4 @@
     <% end %>
 <% end %>
 
+<%= @filtered_jobs[0]%>
