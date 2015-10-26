@@ -1,13 +1,20 @@
+<div id="new-application">
 <% if params[:job_id] %>
+  <h2><%= @applied_job.company.name %></h2>
+  <h4><%= @applied_job.company.link %></h4>
+  <i>Located in: <%= @applied_job.city %> </i>
 
-Company: <%= @applied_job.company.name %> <br>
-Company Website: <%= @applied_job.company.link %>
-Location: <%= @applied_job.city %> <br>
-Company description: <%= @applied_job.company.description %> <br>
-Job description: <%= @applied_job.description %> <br>
-Qualifications: <%= @applied_job.qualifications %> <br>
+<h3>About <%= @applied_job.company.name %> </h3>
+<p><%= @applied_job.company.description %></p>
 
-<% end %>
+<h3>Position: <%= @applied_job.position %></h3>
+<h4>What you'll do</h4>
+<p><%= @applied_job.description %></p>
+
+<h3>Qualifications</h3>
+<p><%= @applied_job.qualifications %></p>
+
+
 
 <%= form_for(@application) do |f| %>
 
@@ -43,3 +50,7 @@ Qualifications: <%= @applied_job.qualifications %> <br>
     <%= f.submit %>
   </div>
 <% end %>
+
+<% end %>
+
+</div>
