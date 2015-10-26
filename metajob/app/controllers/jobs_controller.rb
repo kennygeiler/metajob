@@ -2,11 +2,15 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = Job.all
-    @expensive_jobs = Job.order(:ref_fee)
-    @filtered_jobs = Job.where(city: params[:city])
-    if current_company
-      @my_jobs = Job.where(current_company.id)
+    if !current_company || !current_user
+
+    else
+      @jobs = Job.all
+      @expensive_jobs = Job.order(:ref_fee)
+      @filtered_jobs = Job.where(city: params[:city])
+      if current_company
+        @my_jobs = Job.where(current_company.id)
+      end
     end
   end
 
