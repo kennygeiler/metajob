@@ -6,23 +6,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Company Name</a>
+        <a class="navbar-brand" href="#">ReferMe</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                </ul>
+            <li>
+              <% if current_company %>
+              <%= link_to "My jobs", jobs_path(my_job: true) %> </li>
+              <li><%= link_to "Sign out Company", destroy_company_session_path, :method => :delete %> </li>
+              <% else %>
+              <li><%= link_to "Sign Up Company", new_company_registration_path %></li>
+              <li><%= link_to "Sign In Company", new_company_session_path %>
+              <% end %>
             </li>
+            <li> </li>
         </ul>
         <div class="col-sm-3 col-md-3 pull-right">
             <form class="navbar-form" role="search">
@@ -37,13 +34,7 @@
     </div>
 </nav>
 
-<% if current_company %>
-  <%= link_to "My jobs", jobs_path(my_job: true) %>
-  <%= link_to "Sign out Company", destroy_company_session_path, :method => :delete %>
-<% else %>
- <!--  <%= link_to "Sign Up Company", new_company_registration_path %>  -->
-<!--   <%= link_to "Sign In Company", new_company_session_path %> -->
-<% end %>
+
 
 <% if current_user %>
   <%= link_to "Sign out User", destroy_user_session_path, :method => :delete %>
