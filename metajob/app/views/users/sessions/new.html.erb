@@ -10,16 +10,16 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form col-md-12 center-block") do |f| %>
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control input-lg" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control input-md" %>
   </div>
 
   <div class="form-group">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control input-md" %>
   </div>
 
   <div class="form-group">
-    <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block"  %>
+    <%= f.submit "Log in", class: "btn btn-primary btn-md btn-block"  %>
   </div>
 <% end %>
       </div>
