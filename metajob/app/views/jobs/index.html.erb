@@ -13,10 +13,10 @@
             <li>
               <% if current_company %>
               <%= link_to "My jobs", jobs_path(my_job: true) %> </li>
-              <li><%= link_to "Sign out Company", destroy_company_session_path, :method => :delete %> </li>
+              <li><%= link_to "Sign out", destroy_company_session_path, :method => :delete %> </li>
               <% else %>
-              <li><%= link_to "Sign Up Company", new_company_registration_path %></li>
-              <li><%= link_to "Sign In Company", new_company_session_path %>
+              <li><%= link_to "Employer Sign Up", new_company_registration_path %></li>
+              <li><%= link_to "Employer Sign In", new_company_session_path %>
               <% end %>
             </li>
             <li> </li>
