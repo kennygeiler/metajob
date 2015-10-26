@@ -6,6 +6,7 @@
 
 .app-head {
   color: black;
+  text-decoration: underline;
 }
 
 #app-form {
