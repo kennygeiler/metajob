@@ -15,8 +15,8 @@
               <li><%= link_to "Sign out", destroy_company_session_path, :method => :delete %> </li>
               <% end %>
               <% if current_user %>
-              <li><a href="#"></a>My Referral Code: <%= current_user.ref_code %></li>
               <li> <%= link_to "Sign out User", destroy_user_session_path, :method => :delete %> </li>
+              <li><a href="#">My Referral Code: <%= current_user.ref_code %></a></li>
               <% end %>
         </ul>
         <div class="col-sm-3 col-md-3 pull-right">
