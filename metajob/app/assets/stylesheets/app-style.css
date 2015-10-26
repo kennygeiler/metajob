@@ -20,3 +20,15 @@
 #test {
   background-color: rgba(192, 192, 192, 0.01);
 }
+
+#edit-form {
+  width: 150px;
+}
+
+#edit-container {
+  margin-left: 30px;
+  background: #CFCFCF;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 1px 2px 2px 2px;
+}
