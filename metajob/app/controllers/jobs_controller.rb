@@ -2,8 +2,8 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    if !current_company || !current_user
-
+    if !current_company && !current_user
+      redirect_to root_path
     else
       @jobs = Job.all
       @expensive_jobs = Job.order(:ref_fee)
