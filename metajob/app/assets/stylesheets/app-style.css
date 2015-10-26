@@ -1,6 +1,7 @@
 #new-application {
   font-size: 13px;
   color: black;
+  margin-left: 50px;
 }
 
 .app-head {
@@ -8,5 +9,11 @@
 }
 
 #app-form {
-  background-color: #BAAFAF;
+  background-color: #E1E1E1;
+  width: 400px;
+  padding: 20px;
+}
+
+#test {
+  background-color: white;
 }
