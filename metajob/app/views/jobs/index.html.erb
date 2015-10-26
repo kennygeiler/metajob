@@ -24,18 +24,15 @@
         </div>
     </div>
 </nav>
-
-<p id="notice"><%= notice %></p>
-<h1>Listing Jobs</h1>
-
-             Search Jobs By City: <%= form_tag jobs_path, :method => 'get', class: "navbar-form" do %>
-                <div class="input-group">
-                    <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "New York" %>
-                    <div class="input-group-btn">
-                        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-                    </div>
-                </div>
-            <% end %>
+<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form" do %>
+  <div class="input-group">
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City" %>
+        <div class="input-group-btn">
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          </div>
+  </div>
+</p>
+<% end %>
 
 jobs by city
 <% if @filtered_jobs != nil %>
