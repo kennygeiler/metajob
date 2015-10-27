@@ -33,6 +33,20 @@
   </div>
 </p>
 <% end %>
+<% if current_company %>
+      my jobs <br>
+      <% @my_jobs.each do |job| %>
+        <% if job.position_filled == false %>
+          <%= job.position %>
+          <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
+        <% end %>
+      <% end %>
+<% end %>
+
+
+
+
+
 <% if (params[:my_job] != true) && @filtered_jobs != nil %>
   <% @filtered_jobs.each do |job| %>
     <%= job.position %>
@@ -62,5 +76,3 @@
         <% end %>
     <% end %>
 <% end %>
-
-<%= @filtered_jobs[0]%>
