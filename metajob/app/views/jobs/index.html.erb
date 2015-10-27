@@ -26,29 +26,24 @@
 </nav>
 <% if current_company %>
       <% if @my_jobs.empty? == false %>
-      my jobs <br>
+      <h3 id="job-title-head"><%= current_company.name%>'s Jobs</h3>
         <% @my_jobs.each do |job| %>
           <% if job.position_filled == false %>
-            <%= job.position %>
-            <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
-        <% end %>
+                <div id="accordian">
+      <ul class="list-group">
+          <li class="list-group-item">Referral Bonus: $<%=job.ref_fee %> | Position: <%= job.position %> | Company: <%= job.company.name %> | Location: <%= job.city %> | Applications Submitted: <%= job.applications.count %> | <%= link_to "more info", job_path(job) %> <br>
+             <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
+           </li>
+      </ul>
+  </div>
+  <br>
+      <% end %>
       <% end %>
       <% else %>
-        you have no jobs, post a new job
+      <div id="no-jobs">You have no open jobs, post a new job!</div>
       <% end %>
 <% end %>
 
-
-<% if current_user %>
-<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
-  <div class="input-group">
-      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City: New York" %>
-        <div class="input-group-btn">
-            <%= submit_tag "Search", :name => nil, class: "btn btn-default",  id: "search-btn"%>
-          </div>
-  </div>
-</p>
-<% end %>
 
 <div id="filtered">
     Filtered jobs
@@ -58,31 +53,39 @@
     <br>
   <% end %>
 </div>
-
+<% if current_user %>
 <div id="all-jobs">
-    All jobs
-     <% @jobs.each do |job| %>
-        <%= job.position %>
-        <%= job.company.name %>
-        <%= job.position_filled %>
-        # of applications <%= job.applications.count %>
-        application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
-
-        <%= link_to 'Show', job %>
-        <% if current_company != nil && current_company.id == job.company.id %>
-        <%= link_to 'Edit', edit_job_path(job) %>
-        <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <br>
-    <% end %>
-
-</div>
-
+<h3 id="job-title-head">Open Jobs</h3>
+<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
+  <div class="input-group search-test">
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City: New York" %>
+        <div class="input-group-btn">
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default",  id: "search-btn"%>
+          </div>
+  </div>
+</p>
 <% end %>
+<% @jobs.each_with_index do |job, index| %>
+    <div id="accordian">
+      <ul class="list-group">
+          <li class="list-group-item">Referral Bonus: $<%=job.ref_fee %> | Position: <%= job.position %> | Company: <%= job.company.name %> | Location: <%= job.city %> | Applications Submitted: <%= job.applications.count %> | <%= link_to "more info", job_path(job) %> <br>
+              <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
+
+           </li>
+      </ul>
+  </div>
+  <br>
+<% end %>
+<% end %>
+</div>
 
 <script>
 
 $(document).ready(function() {
+
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
 
 $("#filtered").hide();
 $( "#search-btn" ).click(function(event) {
