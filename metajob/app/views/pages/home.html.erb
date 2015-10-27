@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title>WeRefer</title>
+    <title>ReferMe</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,8 +48,8 @@
                 </div><!--//navbar-header-->
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"><%= link_to "Sign In User", new_user_session_path %></li>
-                        <li class="nav-item"><%= link_to "Sign In Company", new_company_session_path %></li>
+                        <li class="nav-item"><%= link_to "Developer Sign in", new_user_session_path %></li>
+                        <li class="nav-item"><%= link_to "Employer Sign In", new_company_session_path %></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->
@@ -62,8 +62,8 @@
             <h2 class="title">Refer<span class="highlight">Me</span></h2>
             <p class="intro">Crowdsourced Recruiting paving the way for the new way to hire and get hired.</p>
             <div class="btns">
-                <%= link_to "Sign Up Company", new_company_registration_path, class: "btn btn-cta-secondary" %>
-                <%= link_to "Sign Up User", new_user_registration_path, class: "btn btn-cta-primary" %>
+                <%= link_to "Employer Sign Up", new_company_registration_path, class: "btn btn-cta-secondary" %>
+                <%= link_to "Developer Sign Up", new_user_registration_path, class: "btn btn-cta-primary" %>
             </div>
             <ul class="meta list-inline">
 
@@ -79,6 +79,7 @@
             <h2 class="title text-center">How it works!</h2>
             <p class="intro text-center">Explain your project in detail. Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
             <div class="row">
+                <h3 class="home-header">For Employers</h3>
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
                         <i class="fa fa-heart"></i>
@@ -107,10 +108,12 @@
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="clearfix visible-md"></div>
+                <h3 class="home-header">For Developers</h3>
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
                         <i class="fa fa-tablet"></i>
                     </div>
+
                     <div class="content">
                         <h3 class="sub-title">Mobile-friendly</h3>
                         <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>

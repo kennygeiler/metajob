@@ -44,3 +44,12 @@
 #city {
   width: 200px;
 }
+
+.home-header {
+  padding-bottom: 15px;
+  text-decoration: underline;
+}
+
+.about {
+  margin-bottom: 40px;
+}
