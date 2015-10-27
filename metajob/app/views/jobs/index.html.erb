@@ -25,8 +25,8 @@
     </div>
 </nav>
 <% if current_company %>
-      my jobs <br>
       <% if @my_jobs.empty? == false %>
+      my jobs <br>
         <% @my_jobs.each do |job| %>
           <% if job.position_filled == false %>
             <%= job.position %>
@@ -37,6 +37,8 @@
         you have no jobs, post a new job
       <% end %>
 <% end %>
+
+
 <% if current_user %>
 <p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
   <div class="input-group">
