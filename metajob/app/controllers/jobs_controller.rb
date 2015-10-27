@@ -2,11 +2,14 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = Job.all
-    @expensive_jobs = Job.order(:ref_fee)
-    @filtered_jobs = Job.where(city: params[:city])
-    if current_company
-      @my_jobs = Job.where(current_company.id)
+    if !current_company && !current_user
+      redirect_to root_path
+    else
+      @jobs = Job.all
+      @filtered_jobs = Job.where(city: params[:city])
+      if current_company
+        @my_jobs = Job.where(company_id: current_company.id)
+      end
     end
   end
 
@@ -51,7 +54,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to jobs_path, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }

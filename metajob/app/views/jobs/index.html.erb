@@ -1,74 +1,106 @@
-<p id="notice"><%= notice %></p>
-<% if current_user%>
- My Ref Code: <%= current_user.ref_code %>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <%= link_to "ReferMe", jobs_path, class: "navbar-brand", id: "find-all-jobs" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+              <% if current_company %>
+              <li><%= link_to "My jobs", jobs_path %> </li>
+              <li><%= link_to 'New Job', new_job_path %></li>
+              <li><%= link_to "Sign out", destroy_company_session_path, :method => :delete %> </li>
+              <% end %>
+              <% if current_user %>
+              <li> <%= link_to "Sign out User", destroy_user_session_path, :method => :delete %> </li>
+              <li><a href="#">My Referral Code: <%= current_user.ref_code %></a></li>
+              <% end %>
+        </ul>
+        <div class="col-sm-3 col-md-3 pull-right">
+        </div>
+    </div>
+</nav>
+<% if current_company %>
+      <% if @my_jobs.empty? == false %>
+      my jobs <br>
+        <% @my_jobs.each do |job| %>
+          <% if job.position_filled == false %>
+            <%= job.position %>
+            <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
+        <% end %>
+      <% end %>
+      <% else %>
+        you have no jobs, post a new job
+      <% end %>
 <% end %>
 
-<h1>Listing Jobs</h1>
 
-jobs by city
-<% if @filtered_jobs != nil %>
-  <% @filtered_jobs.each do |job| %>
+<% if current_user %>
+<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
+  <div class="input-group">
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City: New York" %>
+        <div class="input-group-btn">
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default",  id: "search-btn"%>
+          </div>
+  </div>
+</p>
+<% end %>
+
+<div id="filtered">
+    Filtered jobs
+    <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
-  <% end %>
-<% end %>
-
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <%= form_tag jobs_path, :method => 'get' do %>
-  <p>
-    Search by city
-    <%= text_field_tag :city, params[:city] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.position %></td>
-        <td><%= job.company.name %></td>
-        <td><%= job.position_filled %></td>
-        <td># of applications <%= job.applications.count %></td>
-        <td>application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
-
-        <td><%= link_to 'Show', job %></td>
-        <% if current_company != nil && current_company.id == job.company.id %>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
-<% if @my_jobs != nil && (params[:my_job] = true)%>
-  my jobs <br>
-  <% @my_jobs.each do |job| %>
-    <% if job.position_filled == false %>
-    <%= job.position %>
-    <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
-    <% end %>
     <br>
-  --------------
-
   <% end %>
+</div>
+
+<div id="all-jobs">
+    All jobs
+     <% @jobs.each do |job| %>
+        <%= job.position %>
+        <%= job.company.name %>
+        <%= job.position_filled %>
+        # of applications <%= job.applications.count %>
+        application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
+
+        <%= link_to 'Show', job %>
+        <% if current_company != nil && current_company.id == job.company.id %>
+        <%= link_to 'Edit', edit_job_path(job) %>
+        <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <br>
+    <% end %>
+
+</div>
+
 <% end %>
 
-<br>
+<script>
 
-<% if current_company != nil %>
-  <%= link_to 'New Job', new_job_path %>
-<% end %>
+$(document).ready(function() {
+
+$("#filtered").hide();
+$( "#search-btn" ).click(function(event) {
+  $("#filtered").show();
+  $("#all-jobs").hide();
+  event.preventDefault();
+});
+
+
+$( "#find-all-jobs" ).click(function(event) {
+  $("#filtered").hide();
+  $("#all-jobs").show();
+  event.preventDefault();
+});
+
+
+
+});
+
+
+</script>
