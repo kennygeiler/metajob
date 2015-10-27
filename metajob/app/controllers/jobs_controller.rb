@@ -8,7 +8,7 @@ class JobsController < ApplicationController
       @jobs = Job.all
       @filtered_jobs = Job.where(city: params[:city])
       if current_company
-        @my_jobs = Job.where(current_company.id)
+        @my_jobs = Job.where(company_id: current_company.id)
       end
     end
   end

@@ -26,11 +26,15 @@
 </nav>
 <% if current_company %>
       my jobs <br>
+      <% if @my_jobs.empty? == false %>
       <% @my_jobs.each do |job| %>
         <% if job.position_filled == false %>
           <%= job.position %>
           <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
         <% end %>
+      <% end %>
+      <% else %>
+        you have no jobs, post a new job
       <% end %>
 <% end %>
 <% if current_user %>
