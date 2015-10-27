@@ -49,12 +49,15 @@
   </div>
 </p>
 <% end %>
+
+<div id="filtered">
     <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
   <% end %>
-  <br>
-  <br>
+</div>
+
+<div id="all-jobs">
      <% @jobs.each do |job| %>
         <%= job.position %>
         <%= job.company.name %>
@@ -68,5 +71,7 @@
         <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
     <% end %>
+
+</div>
 
 <% end %>
