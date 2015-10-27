@@ -5,8 +5,9 @@ class JobsController < ApplicationController
     if !current_company && !current_user
       redirect_to root_path
     else
-      @jobs = Job.all
-      @filtered_jobs = Job.where(city: params[:city])
+      @jobs = params[:city] ? Job.where(city: params[:city]) : Job.all
+      # @jobs = @jobs.paginate(job: params[:city])
+      # @jobs = Job.all
       if current_company
         @my_jobs = Job.where(company_id: current_company.id)
       end

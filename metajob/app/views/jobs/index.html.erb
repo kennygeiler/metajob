@@ -56,18 +56,7 @@
   </div>
 </p>
 <% end %>
-<% @filtered_jobs.each_with_index do |job, index| %>
-    <div id="accordian">
-      <ul class="list-group">
-          <li class="list-group-item">Referral Bonus: $<%=job.ref_fee %> | Position: <%= job.position %> | Company: <%= job.company.name %> | Location: <%= job.city %> | Applications Submitted: <%= job.applications.count %> | <%= link_to "more info", job_path(job) %> <br>
-              <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
 
-           </li>
-      </ul>
-  </div>
-  <br>
-    <br>
-  <% end %>
 </div>
 <% if current_user %>
 <div id="all-jobs">
