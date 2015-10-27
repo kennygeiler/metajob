@@ -46,18 +46,7 @@
 <% end %>
 
 
-<div id="filtered">
-<h3 id="job-title-head">Open Jobs</h3>
-<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
-  <div class="input-group search-test">
-      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City: New York" %>
-        <div class="input-group-btn">
-            <%= submit_tag "Search", :name => nil, class: "btn btn-default",  id: "search-btn"%>
-          </div>
-  </div>
-</p>
-<% end %>
-</div>
+
 <% if current_user %>
 <div id="all-jobs">
 <h3 id="job-title-head">Open Jobs</h3>
@@ -88,22 +77,8 @@
 
 $(document).ready(function() {
 
-
-$("#filtered").hide();
-$( "#search-btn" ).click(function(event) {
-  $("#filtered").show();
-  $("#all-jobs").hide();
-  event.preventDefault();
-});
-
-
-$( "#find-all-jobs" ).click(function(event) {
-  $("#filtered").hide();
-  $("#all-jobs").show();
-  event.preventDefault();
-});
-
-
+  #("#filtered").hide();
+  var url = window.location.host;
 
 });
 
