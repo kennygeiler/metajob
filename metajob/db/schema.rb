@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151013234944) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "applications", force: :cascade do |t|
     t.string   "full_name",      null: false
     t.string   "email",          null: false
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 20151013234944) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "companies", ["email"], name: "index_companies_on_email", unique: true
-  add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
+  add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "position",                           null: false
@@ -64,7 +67,6 @@ ActiveRecord::Schema.define(version: 20151013234944) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "invite_code"
     t.string   "ref_code"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -78,7 +80,7 @@ ActiveRecord::Schema.define(version: 20151013234944) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
