@@ -63,7 +63,7 @@
     <div id="accordian">
       <ul class="list-group">
           <li class="list-group-item">Referral Bonus: $<%=job.ref_fee %> | Position: <%= job.position %> | Company: <%= job.company.name %> | Location: <%= job.city %> | Applications Submitted: <%= job.applications.count %> | <%= link_to "more info", job_path(job) %> <br>
-              <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
+              <a href="applications/new?job_id=<%=job.id%>" class="link-test">/new?job_id<%=job.id%></a>
 
            </li>
       </ul>
@@ -77,8 +77,8 @@
 
 $(document).ready(function() {
 
-  #("#filtered").hide();
   var url = window.location.host;
+  $(".link-test").prepend(url);
 
 });
 
