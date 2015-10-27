@@ -53,3 +53,20 @@
 .about {
   margin-bottom: 40px;
 }
+
+#accordian {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#job-title-head {
+  text-align: center;
+}
+
+.index-search {
+  text-align: right;
+}
+
+.search-test {
+  margin-right: 25px;
+}
