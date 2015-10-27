@@ -26,12 +26,18 @@
 </nav>
 <% if current_company %>
       <% if @my_jobs.empty? == false %>
-      my jobs <br>
+      <h3 id="job-title-head"><%= current_company.name%>'s Jobs</h3>
         <% @my_jobs.each do |job| %>
           <% if job.position_filled == false %>
-            <%= job.position %>
-            <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
-        <% end %>
+                <div id="accordian">
+      <ul class="list-group">
+          <li class="list-group-item">Referral Bonus: $<%=job.ref_fee %> | Position: <%= job.position %> | Company: <%= job.company.name %> | Location: <%= job.city %> | Applications Submitted: <%= job.applications.count %> | <%= link_to "more info", job_path(job) %> <br>
+             <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
+           </li>
+      </ul>
+  </div>
+  <br>
+      <% end %>
       <% end %>
       <% else %>
         you have no jobs, post a new job
