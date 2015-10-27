@@ -24,15 +24,6 @@
         </div>
     </div>
 </nav>
-<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
-  <div class="input-group">
-      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City: New York" %>
-        <div class="input-group-btn">
-            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-          </div>
-  </div>
-</p>
-<% end %>
 <% if current_company %>
       my jobs <br>
       <% @my_jobs.each do |job| %>
@@ -43,29 +34,21 @@
       <% end %>
 <% end %>
 <% if current_user %>
-
-
-
+<p id="search"><%= form_tag jobs_path, :method => 'get', class: "navbar-form index-search" do %>
+  <div class="input-group">
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: " Search by City: New York" %>
+        <div class="input-group-btn">
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          </div>
+  </div>
+</p>
 <% end %>
-
-
-
-
-<% if (params[:my_job] != true) && @filtered_jobs != nil %>
-  <% @filtered_jobs.each do |job| %>
+    <% @filtered_jobs.each do |job| %>
     <%= job.position %>
     <%= job.city %>
   <% end %>
-<% elsif @my_jobs != nil && (params[:my_job] = true) %>
-  my jobs <br>
-  <% @my_jobs.each do |job| %>
-    <% if job.position_filled == false %>
-    <%= job.position %>
-    <%= link_to "mark job as hired", edit_job_path(job.id) %> <br>
-    <% end %>
-    <br>
-  <% end %>
-<% else %>
+  <br>
+  <br>
      <% @jobs.each do |job| %>
         <%= job.position %>
         <%= job.company.name %>
@@ -79,4 +62,5 @@
         <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
     <% end %>
+
 <% end %>
