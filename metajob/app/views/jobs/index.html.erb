@@ -84,6 +84,16 @@ All jobs
 
 $(document).ready(function() {
 
+  $(".accordion-body").toggle();
+  $(".accordion-toggle").click(function(){
+    var href = $(".accordion-toggle").attr('href');
+    console.log(href);
+    var res = href.split("");
+    var last = res[res.length - 1];
+    console.log("#collapse" + last);
+    $("#collapse" + last.to_s).toggle();
+  });
+
 $("#filtered").hide();
 $( "#search-btn" ).click(function(event) {
   $("#filtered").show();
