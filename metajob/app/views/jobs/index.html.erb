@@ -60,25 +60,25 @@
 </div>
 
 <div id="all-jobs">
-    All jobs
-     <% @jobs.each do |job| %>
+All jobs
+<br>
+<% @jobs.each_with_index do |job, index| %>
+  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= index.to_s %>">
         <%= job.position %>
         <%= job.company.name %>
         <%= job.position_filled %>
-        # of applications <%= job.applications.count %>
-        application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
-
-        <%= link_to 'Show', job %>
-        <% if current_company != nil && current_company.id == job.company.id %>
-        <%= link_to 'Edit', edit_job_path(job) %>
-        <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <br>
-    <% end %>
+  </a>
+  <div id="collapse<%= index.to_s %>" class="accordion-body collapse in">
+    # of applications <%= job.applications.count %>
+    application link: <a href="applications/new?job_id=<%=job.id%>">http://localhost:3000/applications/new?job_id<%=job.id%></a>
+  </div>
+  <br>
+<% end %>
 
 </div>
 
 <% end %>
+
 
 <script>
 
