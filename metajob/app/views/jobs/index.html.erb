@@ -25,9 +25,6 @@
         </div>
     </div>
 </nav>
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
 <% if current_company %>
       <% if @my_jobs.empty? == false %>
       <h3 id="job-title-head"><%= current_company.name%>'s Jobs</h3>
@@ -48,7 +45,9 @@
       <% end %>
 <% end %>
 
-
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 
 <% if current_user %>
 <div id="all-jobs">
