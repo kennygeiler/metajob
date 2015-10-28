@@ -15,7 +15,8 @@ class ApplicationsController < ApplicationController
         end
       end
       if @application.reffering_user && @application.save
-          redirect_to jobs_path, notice: 'Application was successfully created.'
+          flash[:notice] = "Application successfully submitted"
+          redirect_to jobs_path
       else
           redirect_to new_application_path(job_id: @application.job_id)
       end

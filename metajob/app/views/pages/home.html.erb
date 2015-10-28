@@ -28,7 +28,6 @@
 </head>
 
 <body data-spy="scroll">
-
     <!-- ******HEADER****** -->
     <header id="header" class="header">
         <div class="container">
@@ -55,6 +54,10 @@
             </nav><!--//main-nav-->
         </div>
     </header><!--//header-->
+          <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
 
     <!-- ******PROMO****** -->
     <section id="promo" class="promo section offset-header">
