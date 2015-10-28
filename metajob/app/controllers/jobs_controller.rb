@@ -6,8 +6,6 @@ class JobsController < ApplicationController
       redirect_to root_path
     else
       @jobs = params[:city] ? Job.where(city: params[:city]) : Job.all
-      # @jobs = @jobs.paginate(job: params[:city])
-      # @jobs = Job.all
       if current_company
         @my_jobs = Job.where(company_id: current_company.id)
       end
@@ -40,7 +38,7 @@ class JobsController < ApplicationController
 
       respond_to do |format|
         if @job.save
-          format.html { redirect_to @job, notice: 'Job was successfully created.' }
+          format.html { redirect_to @job }
           format.json { render :show, status: :created, location: @job }
         else
           format.html { render :new }
