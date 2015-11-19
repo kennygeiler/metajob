@@ -1,0 +1,79 @@
+.container {
+  text-align: center;
+}
+
+#degree {
+  color: rgb(50, 194, 250);
+}
+
+.title {
+  margin-top: 55px;
+  font-family: Noto Serif;
+  font-size: 62px;
+}
+
+.intro {
+  margin-top: 55px;
+  font-size: 24px;
+  margin-left: 250px;
+  margin-right: 250px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#hi {
+  font-weight: bold;
+  font-size: 32px;
+  color: rgb(50, 194, 250);
+}
+
+.how {
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.explination {
+  margin-top: 15px;
+  margin-left: 225px;
+  margin-right: 225px;
+  font-size: 28px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: normal;
+  padding: 5px;
+}
+
+.examples {
+  margin-top: 35px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.photos {
+  margin-top: 15px;
+  text-align: center;
+  margin-left: 180px;
+}
+
+.pic {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.special {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+img {
+  border: 1px solid #EBE8E8;
+}
+
+.footer {
+  margin-top: 65px;
+  font-size: 24px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 100px;
+}
